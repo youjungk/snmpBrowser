@@ -39,12 +39,15 @@ class SnmpApp(QMainWindow):
         self.main_button_3 = QPushButton('Topology Tree retrieval', self)
         self.main_button_3.resize(200, 130)
         self.main_button_3.move(30, 350)
-        self.main_button_4 = QPushButton('Topology Profile retrieval',self)
+        self.main_button_4 = QPushButton('Topology Profile retrieval', self)
         self.main_button_4.resize(200, 130)
         self.main_button_4.move(30, 500)
         self.main_button_5 = QPushButton('Get/Set Actions', self)
         self.main_button_5.resize(200, 130)
         self.main_button_5.move(30, 650)
+        self.main_button_6 = QPushButton('FULL SEND', self)
+        self.main_button_6.resize(150, 30)
+        self.main_button_6.move(260, 660)
         self.main_button_1.clicked.connect(self.getACfile)
 
         self.main_outputbox_1 = QTextEdit(self)
@@ -63,7 +66,7 @@ class SnmpApp(QMainWindow):
         self.main_lineedit = QLineEdit(self)
         self.main_lineedit.move(260, 600)
         self.main_lineedit.resize(510, 50)
-        self.main_lineedit.textChanged(self, self.oidtextchanged)
+        self.main_lineedit.textChanged.connect(self.oidtextchanged)
 
         self.main_button_2.clicked.connect(self.onclick)
 
