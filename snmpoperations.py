@@ -56,7 +56,11 @@ class SnmpOperations:
             return 'Please select choose valid option (config/upgrade/activate)'
 
     def snmpget(self, oid):
+<<<<<<< HEAD
         return str(self.session.get(oid))
+=======
+        return self.session.get(oid)
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 
     def snmpset(self, oid, value, settype):
         if settype == 'integer':

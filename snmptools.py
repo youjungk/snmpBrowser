@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #!/usr/bin/env python3.5
+=======
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
@@ -43,7 +46,11 @@ class SnmpApp(QMainWindow):
         self.main_button_4 = QPushButton('Topology Profile retrieval', self)
         self.main_button_4.resize(200, 130)
         self.main_button_4.move(30, 500)
+<<<<<<< HEAD
         self.main_button_5 = QPushButton('Set Actions', self)
+=======
+        self.main_button_5 = QPushButton('Get/Set Actions', self)
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         self.main_button_5.resize(200, 130)
         self.main_button_5.move(30, 650)
         self.main_button_6 = QPushButton('FULL SEND', self)
@@ -62,19 +69,27 @@ class SnmpApp(QMainWindow):
         self.main_selectable_list.addItem("Logging Profile Retrieval")
         self.main_selectable_list.addItem("SSH Key Retrieval")
         self.main_selectable_list.addItem("")
+<<<<<<< HEAD
         self.main_selectable_list.itemDoubleClicked.connect(self.itemclicked)
+=======
+        self.main_selectable_list.itemDoubleClicked.connect(self.clicked)
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 
         self.main_lineedit = QLineEdit(self)
         self.main_lineedit.move(260, 600)
         self.main_lineedit.resize(510, 50)
         self.main_lineedit.textChanged.connect(self.oidtextchanged)
 
+<<<<<<< HEAD
         # CLICK ACTIONS
         self.main_button_2.clicked.connect(self.getACfile)
         self.main_button_3.clicked.connect(self.topologytreebuttonclicked)
         self.main_button_4.clicked.connect(self.topologyprofilebuttonclicked)
         self.main_button_5.clicked.connect(self.setbuttonclicked)
         self.main_button_6.clicked.connect(self.getbuttonclicked)
+=======
+        self.main_button_2.clicked.connect(self.onclick)
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 
         self.oid = ''
 
@@ -91,6 +106,7 @@ class SnmpApp(QMainWindow):
         self.ftpPort = ''
         self.mac = ''
 
+<<<<<<< HEAD
         # SNMPSET ACTIONS
         self.oid = ''
         self.setType= ''
@@ -162,6 +178,13 @@ class SnmpApp(QMainWindow):
             self.SNMPParam.set_value = self.setStringorInt
             self.SNMPOperation.snmpset(self.SNMPParam.oid, self.SNMPParam.set_type, self.SNMPParam.set_value)
 
+=======
+        self.SNMPParam = snmpparam.SnmpParam(self.deviceType, self.actionType, self.filename, self.filesize, self.filemd5, self.ftpAddr, self.ftpType, self.ftpUser, self.ftpPass, self.ftpPort, self.mac)
+        self.SNMPOperation = snmpoperations.SnmpOperations('10.10.100.1')
+
+    def clicked(self, item):
+        QMessageBox.information(self, "ListWidget", "You clicked that FULL SEND BABY!!!!! " + item.text())
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 
     def getACfile (self):
         d = QDialog(self)
@@ -175,7 +198,11 @@ class SnmpApp(QMainWindow):
         device_type.selectAll()
         device_type.textChanged.connect(self.textChanged_deviceType)
 
+<<<<<<< HEAD
         # ACTION TYPE
+=======
+        #ACTION TYPE
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.action_type == '':
             action_type = QLineEdit("Enter action type (config/upgrade)", d)
         else:
@@ -185,7 +212,11 @@ class SnmpApp(QMainWindow):
         action_type.selectAll()
         action_type.textChanged.connect(self.textChanged_actionType)
 
+<<<<<<< HEAD
         # FILE NAME
+=======
+        #FILE NAME
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.file_name == '':
             filename = QLineEdit("Enter file name", d)
         else:
@@ -195,7 +226,11 @@ class SnmpApp(QMainWindow):
         filename.selectAll()
         filename.textChanged.connect(self.textChanged_filename)
 
+<<<<<<< HEAD
         # FILE SIZE
+=======
+        #FILE SIZE
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.file_size == '':
             filesize = QLineEdit("Enter file size", d)
         else:
@@ -205,7 +240,11 @@ class SnmpApp(QMainWindow):
         filesize.selectAll()
         filesize.textChanged.connect(self.textChanged_filesize)
 
+<<<<<<< HEAD
         # FILEMD5
+=======
+        #FILEMD5
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.file_md5 == '':
             filemd5 = QLineEdit("Enter file md5", d)
         else:
@@ -215,7 +254,11 @@ class SnmpApp(QMainWindow):
         filemd5.selectAll()
         filemd5.textChanged.connect(self.textChanged_filemd5)
 
+<<<<<<< HEAD
         # FTPADDR
+=======
+        #FTPADDR
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.ftp_addr == '':
             ftpaddr = QLineEdit("Enter ftp address", d)
         else:
@@ -235,7 +278,11 @@ class SnmpApp(QMainWindow):
         ftpType.selectAll()
         ftpType.textChanged.connect(self.textChanged_ftpType)
 
+<<<<<<< HEAD
         # FTPUSER
+=======
+        #FTPUSER
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.ftp_user == '':
             ftpUser = QLineEdit("Enter ftp user", d)
         else:
@@ -245,7 +292,11 @@ class SnmpApp(QMainWindow):
         ftpUser.selectAll()
         ftpUser.textChanged.connect(self.textChanged_ftpUser)
 
+<<<<<<< HEAD
         # FTPPASS
+=======
+        #FTPPASS
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.ftp_pass == '':
             ftpPass = QLineEdit("Enter ftp pass", d)
         else:
@@ -255,7 +306,11 @@ class SnmpApp(QMainWindow):
         ftpPass.selectAll()
         ftpPass.textChanged.connect(self.textChanged_ftpPass)
 
+<<<<<<< HEAD
         # FTPPORT
+=======
+        #FTPPORT
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.ftp_port == '':
             ftpPort = QLineEdit("Enter ftp port", d)
         else:
@@ -265,7 +320,11 @@ class SnmpApp(QMainWindow):
         ftpPort.selectAll()
         ftpPort.textChanged.connect(self.textChanged_ftpPort)
 
+<<<<<<< HEAD
         # MAC
+=======
+        #MAC
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
         if self.SNMPParam.mac == '':
             mac = QLineEdit("Enter mac", d)
         else:
@@ -285,10 +344,16 @@ class SnmpApp(QMainWindow):
         d.setWindowTitle('AC file')
 
         result = d.exec()
+<<<<<<< HEAD
 
         if result == True:
             #print("b: " + b)
             self.SNMPParam.set_params(self.deviceType, self.actionType, self.filename, self.filesize, self.filemd5, self.ftpAddr, self.ftpType, self.ftpUser, self.ftpPass, self.ftpPort, self.mac, self.oid, self.setType, self.setStringorInt)
+=======
+        if result == True:
+            #print("b: " + b)
+            self.SNMPParam.set_params(self.deviceType, self.actionType, self.filename, self.filesize, self.filemd5, self.ftpAddr, self.ftpType, self.ftpUser, self.ftpPass, self.ftpPort, self.mac)
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
             self.SNMPParam.print_params()
             self.sendConfUpgJob()
             print("OK")
@@ -346,6 +411,7 @@ class SnmpApp(QMainWindow):
     def textChanged_mac(self, text):
         self.mac=text
 
+<<<<<<< HEAD
     def textChanged_oid(self, text):
         self.mac=text
 
@@ -359,6 +425,11 @@ class SnmpApp(QMainWindow):
         self.app.exec_()
 
 
+=======
+    def appexec(self):
+        self.app.exec_()
+
+>>>>>>> 6e1f5ea115d590914aba76022a2bbde2d8083263
 test = SnmpApp()
 #test.create_main_menu()
 test.show()
